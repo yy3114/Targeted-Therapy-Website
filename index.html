@@ -32,7 +32,7 @@
         }
 
         .header h1 {
-            font-size: 2.5em;
+            font-size: 4em;
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
@@ -72,7 +72,14 @@
         .drug-header {
             display: flex;
             align-items: center;
+            justify-content: space-between;
             margin-bottom: 20px;
+        }
+
+        .drug-info {
+            display: flex;
+            align-items: center;
+            flex: 1;
         }
 
         .drug-icon {
@@ -104,6 +111,595 @@
         }
 
         .drug-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .info-section {
+            margin-bottom: 15px;
+        }
+
+        .info-label {
+            font-weight: bold;
+            color: #34495e;
+            margin-bottom: 5px;
+        }
+
+        .info-text {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .side-effects {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .reimbursement-info {
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            color: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .reimbursement-info h4 {
+            margin-bottom: 10px;
+        }
+
+        .reimbursement-covered {
+            background: linear-gradient(135deg, #00b894, #00a085);
+        }
+
+        .reimbursement-not-covered {
+            background: linear-gradient(135deg, #e17055, #d63031);
+        }
+
+        .side-effects h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .side-effects ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .side-effects li {
+            padding: 3px 0;
+            color: #856404;
+        }
+
+        .side-effects li:before {
+            content: "⚠️ ";
+            margin-right: 8px;
+        }
+
+        .comparison-table {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-top: 30px;
+            overflow-x: auto;
+        }
+
+        .comparison-table h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9em;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .toggle-btn {
+            background: none;
+            border: none;
+            font-size: 1.8em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #34495e;
+            padding: 5px;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .toggle-btn:hover {
+            background: rgba(52, 73, 94, 0.1);
+            transform: scale(1.1);
+        }
+
+        .toggle-btn.active {
+            transform: rotate(180deg) scale(1.1);
+            color: #e74c3c;
+            background: rgba(231, 76, 60, 0.1);
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            padding: 20px;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .drug-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timing-categories {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+        }
+
+        .timing-guide {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 40px;
+        }
+
+        .timing-guide h2 {
+            color: #2c3e50;
+            margin-bottom: 25px;
+            text-align: center;
+            font-size: 1.8em;
+        }
+
+        .timing-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .timing-card {
+            border-radius: 10px;
+            padding: 20px;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .timing-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .timing-card.first-line {
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+        }
+
+        .timing-card.maintenance {
+            background: linear-gradient(135deg, #a29bfe, #6c5ce7);
+        }
+
+        .timing-card.second-line {
+            background: linear-gradient(135deg, #fd79a8, #e84393);
+        }
+
+        .timing-card.third-line {
+            background: linear-gradient(135deg, #fdcb6e, #e17055);
+        }
+
+        .timing-header h3 {
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .timing-content h4 {
+            margin-bottom: 8px;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .timing-content ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+
+        .timing-content li {
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+
+        .timing-content p {
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>泌尿上皮癌標靶藥物</h1>
+            <p>了解現代泌尿上皮癌的標靶</p>
+            <p>治療選擇</p>
+            <br>
+            <p>(包含7種主要藥物)</p>
+        </div>
+
+        <div class="timing-guide">
+            <h2>⏰ 使用標靶藥物治療時機</h2>
+            
+            <div class="timing-categories">
+                <div class="timing-card first-line">
+                    <div class="timing-header">
+                        <h3>🥇 一線治療</h3>
+                    </div>
+                    <div class="timing-content">
+                        <h4>適用條件：</h4>
+                        <ul>
+                            <li>不適合含鉑化療的患者</li>
+                            <li>PD-L1表達≥10%的患者</li>
+                            <li>腎功能不佳無法使用cisplatin</li>
+                        </ul>
+                        <h4>推薦藥物：</h4>
+                        <p><strong>Pembrolizumab, Atezolizumab</strong></p>
+                    </div>
+                </div>
+
+                <div class="timing-card maintenance">
+                    <div class="timing-header">
+                        <h3>🔄 維持治療</h3>
+                    </div>
+                    <div class="timing-content">
+                        <h4>適用條件：</h4>
+                        <ul>
+                            <li>一線含鉑化療後無疾病進展</li>
+                            <li>4-6個療程後維持治療</li>
+                            <li>體能狀態良好的患者</li>
+                        </ul>
+                        <h4>推薦藥物：</h4>
+                        <p><strong>Avelumab</strong></p>
+                    </div>
+                </div>
+
+                <div class="timing-card second-line">
+                    <div class="timing-header">
+                        <h3>🥈 二線治療</h3>
+                    </div>
+                    <div class="timing-content">
+                        <h4>適用條件：</h4>
+                        <ul>
+                            <li>含鉑化療後疾病進展</li>
+                            <li>免疫治療失敗後</li>
+                            <li>具特定基因變異（FGFR）</li>
+                        </ul>
+                        <h4>推薦藥物：</h4>
+                        <p><strong>Nivolumab, Atezolizumab, Erdafitinib</strong></p>
+                    </div>
+                </div>
+
+                <div class="timing-card third-line">
+                    <div class="timing-header">
+                        <h3>🎯 三線或後續治療</h3>
+                    </div>
+                    <div class="timing-content">
+                        <h4>適用條件：</h4>
+                        <ul>
+                            <li>免疫治療+化療後疾病進展</li>
+                            <li>多線治療失敗</li>
+                            <li>需要精準標靶治療</li>
+                        </ul>
+                        <h4>推薦藥物：</h4>
+                        <p><strong>Enfortumab vedotin, Sacituzumab govitecan</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="drug-grid" id="drugGrid">
+            <!-- Drug cards will be inserted here by JavaScript -->
+        </div>
+
+        <div class="comparison-table">
+            <h2>📊 藥物比較表</h2>
+            <table id="comparisonTable">
+                <thead>
+                    <tr>
+                        <th>藥物名稱</th>
+                        <th>抗體類型</th>
+                        <th>標靶</th>
+                        <th>健保給付</th>
+                        <th>給藥方式</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Table rows will be inserted here by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="footer">
+            <p>⚕️ 本資訊僅供參考，請務必諮詢您的主治醫師以獲得個人化治療建議</p>
+            <p>最後更新：2024年</p>
+        </div>
+    </div>
+
+    <script>
+        const drugs = [
+            {
+                name: "Pembrolizumab",
+                chineseName: "派姆單抗",
+                brand: "Keytruda®",
+                target: "PD-1 抑制劑",
+                antibodyType: "人源化單株抗體 (IgG4 κ)",
+                mechanism: "阻斷PD-1受體，恢復T細胞對癌細胞的免疫攻擊能力",
+                indication: "用於治療局部晚期或轉移性泌尿上皮癌，特別是不適合含鉑化療或化療後疾病進展的患者",
+                dosage: "每3週靜脈注射200mg，或每6週400mg",
+                sideEffects: ["疲勞", "皮疹", "腹瀉", "甲狀腺功能異常", "肺炎", "肝炎"],
+                nhsReimbursement: "健保給付：需事前審查核准，適用於局部晚期或轉移性泌尿上皮癌，須符合PD-L1表達≥10%或不適合cisplatin治療等條件",
+                color: "#e74c3c",
+                icon: "🛡️"
+            },
+            {
+                name: "Nivolumab",
+                chineseName: "納武利優單抗",
+                brand: "Opdivo®",
+                target: "PD-1 抑制劑",
+                antibodyType: "人源化單株抗體 (IgG4 κ)",
+                mechanism: "人源化單株抗體，與PD-1受體結合，阻斷PD-1與其配體的相互作用，重新激活T細胞的抗腫瘤活性",
+                indication: "用於治療局部晚期或轉移性泌尿上皮癌，適用於含鉑化療期間或化療後疾病進展的患者",
+                dosage: "每2週靜脈注射240mg，或每4週480mg",
+                sideEffects: ["疲勞", "皮疹", "搔癢", "腹瀉", "噁心", "食慾不振", "關節痛"],
+                nhsReimbursement: "健保給付：需事前審查核准，適用於含鉑化療後疾病惡化的局部晚期或轉移性泌尿上皮癌患者",
+                color: "#8e44ad",
+                icon: "⚡"
+            },
+            {
+                name: "Atezolizumab",
+                chineseName: "阿特珠單抗",
+                brand: "Tecentriq®",
+                target: "PD-L1 抑制劑",
+                antibodyType: "人源化單株抗體 (IgG1 κ)",
+                mechanism: "阻斷PD-L1與PD-1的結合，增強免疫系統對癌細胞的識別和攻擊",
+                indication: "用於治療局部晚期或轉移性泌尿上皮癌，可作為一線或二線治療",
+                dosage: "每3週靜脈注射1200mg",
+                sideEffects: ["疲勞", "噁心", "食慾不振", "發燒", "便秘", "皮疹"],
+                nhsReimbursement: "健保給付：需事前審查核准，可用於一線治療(不適合含鉑化療)或二線治療(含鉑化療後惡化)",
+                color: "#3498db",
+                icon: "🎯"
+            },
+            {
+                name: "Avelumab",
+                chineseName: "阿維魯單抗",
+                brand: "Bavencio®",
+                target: "PD-L1 抑制劑",
+                antibodyType: "完全人源化單株抗體 (IgG1 λ)",
+                mechanism: "特異性結合PD-L1，阻斷其與PD-1的相互作用，激活抗腫瘤免疫反應",
+                indication: "用於維持治療局部晚期或轉移性泌尿上皮癌患者，在一線含鉑化療後無疾病進展",
+                dosage: "每2週靜脈注射800mg",
+                sideEffects: ["疲勞", "肌肉骨骼疼痛", "噁心", "腹瀉", "輸注相關反應"],
+                nhsReimbursement: "健保給付：目前尚未納入健保給付範圍，屬自費項目",
+                color: "#9b59b6",
+                icon: "💊"
+            },
+            {
+                name: "Enfortumab vedotin",
+                chineseName: "恩福圖韋單抗",
+                brand: "Padcev®",
+                target: "ADC (抗體藥物偶聯物)",
+                antibodyType: "抗Nectin-4單株抗體偶聯MMAE (monomethyl auristatin E)",
+                mechanism: "針對Nectin-4的抗體偶聯細胞毒性藥物，精準投遞化療藥物至癌細胞",
+                indication: "用於治療局部晚期或轉移性泌尿上皮癌，適用於既往接受過PD-1/PD-L1抑制劑和含鉑化療的患者",
+                dosage: "每3週為一個週期，第1、8、15天靜脈注射1.25mg/kg",
+                sideEffects: ["周邊神經病變", "皮疹", "疲勞", "噁心", "腹瀉", "食慾不振", "脫髮"],
+                nhsReimbursement: "健保給付：目前尚未納入健保給付範圍，屬自費項目，費用較高",
+                color: "#27ae60",
+                icon: "🎪"
+            },
+            {
+                name: "Sacituzumab govitecan",
+                chineseName: "沙西組單抗戈韋替康",
+                brand: "Trodelvy®",
+                target: "ADC (TROP2)",
+                antibodyType: "抗TROP2單株抗體偶聯SN-38 (拓撲異構酶I抑制劑)",
+                mechanism: "針對TROP2受體的抗體偶聯拓撲異構酶I抑制劑，在癌細胞內釋放細胞毒性藥物",
+                indication: "用於治療局部晚期或轉移性泌尿上皮癌，適用於既往接受過含鉑化療和PD-1/PD-L1抑制劑的患者",
+                dosage: "每3週為一個週期，第1、8天靜脈注射10mg/kg",
+                sideEffects: ["中性球減少", "腹瀉", "噁心", "疲勞", "脫髮", "貧血", "嘔吐"],
+                nhsReimbursement: "健保給付：目前尚未納入健保給付範圍，屬自費項目，費用較高",
+                color: "#e67e22",
+                icon: "🧬"
+            },
+            {
+                name: "Erdafitinib",
+                chineseName: "厄達替尼",
+                brand: "Balversa®",
+                target: "FGFR 抑制劑",
+                antibodyType: "小分子標靶藥物 (非抗體類)",
+                mechanism: "選擇性抑制FGFR1-4激酶，阻斷異常的FGFR信號傳導路徑",
+                indication: "用於治療具有易感FGFR3或FGFR2基因改變的局部晚期或轉移性泌尿上皮癌",
+                dosage: "每日口服8mg，可根據磷酸鹽水平調整劑量",
+                sideEffects: ["口瘡", "疲勞", "噁心", "腹瀉", "皮疹", "指甲異常", "磷酸鹽升高"],
+                nhsReimbursement: "健保給付：需事前審查核准，限用於FGFR基因變異陽性之局部晚期或轉移性泌尿上皮癌",
+                color: "#f39c12",
+                icon: "🔬"
+            }
+        ];
+
+        function createDrugCard(drug) {
+            return `
+                <div class="drug-card" onclick="toggleCard(this)">
+                    <div class="drug-header">
+                        <div class="drug-info">
+                            <div class="drug-icon" style="background-color: ${drug.color}">
+                                ${drug.icon}
+                            </div>
+                            <div class="drug-title">
+                                <h3>${drug.name}</h3>
+                                <div class="drug-subtitle">${drug.chineseName} (${drug.brand})</div>
+                            </div>
+                        </div>
+                        <button class="toggle-btn">⭐</button>
+                    </div>
+                    
+                    <div class="drug-content">
+                        <div class="info-section">
+                            <div class="info-label">🧬 抗體類型：</div>
+                            <div class="info-text">${drug.antibodyType}</div>
+                        </div>
+                        
+                        <div class="info-section">
+                            <div class="info-label">🎯 標靶類型：</div>
+                            <div class="info-text">${drug.target}</div>
+                        </div>
+                        
+                        <div class="info-section">
+                            <div class="info-label">🔬 作用機制：</div>
+                            <div class="info-text">${drug.mechanism}</div>
+                        </div>
+                        
+                        <div class="info-section">
+                            <div class="info-label">🏥 適應症：</div>
+                            <div class="info-text">${drug.indication}</div>
+                        </div>
+                        
+                        <div class="info-section">
+                            <div class="info-label">💉 用法用量：</div>
+                            <div class="info-text">${drug.dosage}</div>
+                        </div>
+                        
+                        <div class="info-section">
+                            <div class="info-label">💰 健保給付：</div>
+                            <div class="info-text">${drug.nhsReimbursement}</div>
+                        </div>
+                        
+                        <div class="side-effects">
+                            <h4>⚠️ 常見副作用</h4>
+                            <ul>
+                                ${drug.sideEffects.map(effect => `<li>${effect}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function createTableRow(drug) {
+            const reimbursementStatus = drug.nhsReimbursement.includes('健保給付：需事前審查核准') ? '✅ 有給付' : 
+                                      drug.nhsReimbursement.includes('尚未納入') ? '❌ 無給付' : '⚠️ 部分給付';
+            
+            return `
+                <tr>
+                    <td><strong>${drug.name}</strong><br><small>${drug.chineseName}</small></td>
+                    <td>${drug.antibodyType}</td>
+                    <td>${drug.target}</td>
+                    <td>${reimbursementStatus}</td>
+                    <td>${drug.dosage.includes('口服') ? '💊 口服' : '💉 靜脈注射'}</td>
+                </tr>
+            `;
+        }
+
+        function toggleCard(card) {
+            const content = card.querySelector('.drug-content');
+            const button = card.querySelector('.toggle-btn');
+            
+            // 如果當前卡片是展開狀態，直接收合
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                button.classList.remove('active');
+                return;
+            }
+            
+            // 先收合所有其他卡片
+            const allCards = document.querySelectorAll('.drug-card');
+            allCards.forEach(otherCard => {
+                const otherContent = otherCard.querySelector('.drug-content');
+                const otherButton = otherCard.querySelector('.toggle-btn');
+                otherContent.classList.remove('active');
+                otherButton.classList.remove('active');
+            });
+            
+            // 展開當前點擊的卡片
+            content.classList.add('active');
+            button.classList.add('active');
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            const drugGrid = document.getElementById('drugGrid');
+            const tableBody = document.getElementById('tableBody');
+            
+            // Create drug cards
+            drugs.forEach(drug => {
+                drugGrid.innerHTML += createDrugCard(drug);
+            });
+            
+            // Create table rows
+            drugs.forEach(drug => {
+                tableBody.innerHTML += createTableRow(drug);
+            });
+            
+            // Add smooth scrolling for better UX
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+
+        // Add search functionality
+        function searchDrugs() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.drug-card');
+            
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>        .drug-content.active {
             display: block;
             animation: fadeIn 0.3s ease;
         }
